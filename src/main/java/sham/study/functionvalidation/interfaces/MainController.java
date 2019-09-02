@@ -13,10 +13,11 @@ import sham.study.functionvalidation.domain.model.ItemGenerator;
 @UtilityClass
 public class MainController {
 
-	public static void run(final boolean isDebug) {
+	public static List<Item> run(final boolean isDebug) {
 		final List<BruteItem> bruteItems = ItemGenerator.generate(10);
 		final List<Item> items = CustomValidationFacade.validate(bruteItems);
 		activateLog(items, isDebug);
+		return items;
 
 	}
 
