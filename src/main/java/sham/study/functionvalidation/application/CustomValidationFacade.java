@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import lombok.experimental.UtilityClass;
-import sham.study.functionvalidation.domain.management.ExceptionManager;
 import sham.study.functionvalidation.domain.model.BruteItem;
 import sham.study.functionvalidation.domain.model.Item;
 import sham.study.functionvalidation.domain.model.Item.ItemBuilder;
@@ -21,10 +20,6 @@ public class CustomValidationFacade {
 			CustomValidationService.validate(bruteItem, itemBuilder, validator);
 			return itemBuilder.build();
 		}).collect(Collectors.toList());
-	}
-
-	public List<String> getError() {
-		return ExceptionManager.messages;
 	}
 
 }

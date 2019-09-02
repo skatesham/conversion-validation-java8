@@ -15,4 +15,15 @@ public class ExceptionManager extends RuntimeException {
 		messages.add(message);
 	}
 
+	public static List<String> printErrors() {
+		final List<String> errors = messages;
+		System.out.println("-----> ERROS <-------");
+		int count = 0;
+		for (final Object item : errors) {
+
+			System.out.println((count++) + ": " + item.toString());
+		}
+		return messages;
+	}
+
 }
