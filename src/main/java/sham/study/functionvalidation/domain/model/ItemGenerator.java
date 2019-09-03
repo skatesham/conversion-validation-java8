@@ -19,23 +19,26 @@ public class ItemGenerator {
 			final String description = randomString();
 			final String type = String.valueOf(random.nextInt(2));
 			final String date = "01/01/" + (2000 + i);
-			final BruteItem bruteItem = BruteItem.of(code, description, type, date, null);
+			final BruteItem bruteItem = BruteItem.of(code, description, type, date, "true");
 			items.add(bruteItem);
 		}
 		return items;
 	}
 
+	public static List<BruteItem> getBruteItems() {
+		return null;
+	}
+
 	private String randomString() {
-	    final int leftLimit = 97; // letter 'a'
-	    final int rightLimit = 122; // letter 'z'
-	    final int targetStringLength = 10;
-	    final Random random = new Random();
-	    final StringBuilder buffer = new StringBuilder(targetStringLength);
-	    for (int i = 0; i < targetStringLength; i++) {
-	        final int randomLimitedInt = leftLimit + (int)
-	          (random.nextFloat() * (rightLimit - leftLimit + 1));
-	        buffer.append((char) randomLimitedInt);
-	    }
-	    return buffer.toString().toUpperCase();
+		final int leftLimit = 97; // letter 'a'
+		final int rightLimit = 122; // letter 'z'
+//	    final int targetStringLength = 10;
+		final int targetStringLength = random.nextInt(10);
+		final StringBuilder buffer = new StringBuilder(targetStringLength);
+		for (int i = 0; i < targetStringLength; i++) {
+			final int randomLimitedInt = leftLimit + (int) (random.nextFloat() * (rightLimit - leftLimit + 1));
+			buffer.append((char) randomLimitedInt);
+		}
+		return buffer.toString().toUpperCase();
 	}
 }

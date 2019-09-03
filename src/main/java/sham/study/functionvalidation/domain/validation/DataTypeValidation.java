@@ -24,8 +24,8 @@ public class DataTypeValidation {
 		return ValidationInteger.of();
 	}
 
-	public static CustomValidation<String, String> cutText() {
-		return ValidationCutText.of();
+	public static CustomValidation<String, String> splitText() {
+		return ValidationSplitText.of();
 	}
 
 	public static CustomValidation<String, LocalDate> date() {
@@ -58,7 +58,7 @@ public class DataTypeValidation {
 				if (Objects.nonNull(i)) {
 					return i.trim();
 				}
-				throw new Exception();
+				throw new Exception("Forcing Stop.");
 			} catch (final Exception e) {
 				throw new ExceptionManager("Null Error");
 			}
@@ -80,12 +80,12 @@ public class DataTypeValidation {
 	}
 
 	@NoArgsConstructor(staticName = "of")
-	public static class ValidationCutText extends CustomValidation<String, String> {
+	public static class ValidationSplitText extends CustomValidation<String, String> {
 
 		@Override
 		public String validate(final String i) {
 			try {
-				return i.substring(0, 2);
+				return i.substring(0, i.length() / 2 + 1);
 			} catch (final Exception e) {
 				throw new ExceptionManager("CutText error");
 			}
