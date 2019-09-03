@@ -2,7 +2,6 @@ package sham.study.functionvalidation.interfaces;
 
 import java.util.List;
 
-import br.com.six2six.fixturefactory.Fixture;
 import lombok.experimental.UtilityClass;
 import sham.study.functionvalidation.application.CustomValidationFacade;
 import sham.study.functionvalidation.domain.management.ExceptionManager;
@@ -18,7 +17,7 @@ public class MainController {
 	public static List<Item> run(final boolean isDebug) {
 		ItemFixture.loadTemplate();
 		final List<BruteItem> bruteItems = ItemGenerator.generate(10);
-		final List<BruteItem> gimme = Fixture.from(BruteItem.class).gimme(5, ItemFixture.DEFAULT);
+//		final List<BruteItem> gimme = Fixture.from(BruteItem.class).gimme(5, ItemFixture.DEFAULT);
 		final List<Item> items = convertBruteItemsToItemsWithValidation(bruteItems);
 		PrintConsole.printList(items);
 		activateLog(isDebug);

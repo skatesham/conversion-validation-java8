@@ -20,6 +20,7 @@ public class ItemGenerator {
 			final String type = String.valueOf(random.nextInt(2));
 			final String date = "01/01/" + (2000 + i);
 			final BruteItem bruteItem = BruteItem.of(code, description, type, date, "true");
+//			final BruteItem bruteItem = BruteItem.of(null, null, null, null, "null");
 			items.add(bruteItem);
 		}
 		return items;
